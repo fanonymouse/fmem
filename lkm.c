@@ -45,6 +45,13 @@ static struct kprobe kp = {.symbol_name = "kallsyms_lookup_name"};
 #include <linux/efi.h>
 #endif
 
+// Function prototypes
+void *my_xlate_dev_mem_ptr(phys_addr_t phys);
+void my_unxlate_dev_mem_ptr(phys_addr_t phys, void *addr);
+int find_symbols(void);
+int __init fmem_init(void);
+void __exit fmem_cleanup(void);
+
 // this is major number used for our new dumping device.
 // 341 should be in free range
 // In future maybe I should request number dynamically
